@@ -1,8 +1,8 @@
+//리액트, 리액트돔(렌더링을 위해), css(꾸미기), App(루트 컴포넌트), 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './components/App';
+import reportWebVitals from './components/reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
