@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import reportWebVitals from './components/reportWebVitals';
 
+//컴포넌트 들을 렌더링(실제 화면에 쏨)
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  //index.html의 root
   document.getElementById('root')
 );
 
