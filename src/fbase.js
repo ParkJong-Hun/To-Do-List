@@ -1,13 +1,13 @@
 // 파이어베이스 앱(파이어베이스 SDK 코어)은 항상 첫번째 줄에 적혀있어야 한다.
-import fbase from "firebase/app";
+import firebase from "firebase/app";
 // 만약 v7이나 더 낮은 버전 JS SDK를 사용하고 있다면 import firebase는 namespace import를 해야한다.
 // import * as firebase from "firebase/app"
 
 // Analytics를 프로젝트에 사용하고싶으면, 아래의 문장을 추가해야한다.
-import "firebase/analytics";
+//import "firebase/analytics";
 
 // 원하는 파이어베이스의 기능들을 추가한다.
-import "firebase/auth";
+//import "firebase/auth";
 import "firebase/firestore";
 
 // 아래의 firebaseConfig 값들을 자신의 프로젝트의 값으로 변경해야한다.
@@ -22,5 +22,6 @@ var firebaseConfig = {
     measurementId: "G-XQFWX9YT54"
   };
   //파이어베이스 생성
-  fbase.initializeApp(firebaseConfig);
-  fbase.analytics();
+  firebase.initializeApp(firebaseConfig);
+  export const firebaseInstance = firebase;
+  export const dbService = firebase.firestore();
