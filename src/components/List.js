@@ -1,13 +1,28 @@
-import React from 'react';
+import userEvent from '@testing-library/user-event';
+import React, { useEffect, useState } from 'react';
 import {dbService} from '../fbase';
 
 const List = () => {
-    const ListOpen = () => {
-        dbService.collection("list").get().
-    }
+    const [lists, setLists] = useState([]);
+    useEffect(() => {
+        dbService.collection("list").onSnapshot(snapshot => {
+            const listArray = snapshot.docs.map(doc => ({text: doc.text, ...doc.data()}));
+            setLists(listArray);
+        })
+    }, []);
     return (
         <div>
-            <p>{ListOpen}</p>
+            {lists.map((thelist) => (
+                <ViewList list = {thelist}/>
+            ))}
+        </div>
+    );
+}
+
+const ViewList = ({list}) => {
+    return(
+        <div>
+            {list.text}
         </div>
     );
 }
