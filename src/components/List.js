@@ -20,9 +20,12 @@ const List = () => {
 }
 
 const ViewList = ({list}) => {
+    const Delete = () => {
+        dbService.collection("list").doc("list_" + list.text).delete();
+    }
     return(
         <div>
-            {list.text}
+            {list.text}<button onClick={Delete}>취소</button>
         </div>
     );
 }
