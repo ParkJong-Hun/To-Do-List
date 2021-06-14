@@ -20,7 +20,7 @@ const Add = () => {
     }
     return (
         <div>
-            <input type="text" id="listAddText" onChange={OnChange}/>
+            <input type="text" id="listAddText" onChange={OnChange} placeholder="Please add something"/>
             <button onClick={OnClick}>Add</button>
         </div>
     );

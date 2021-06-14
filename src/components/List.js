@@ -54,9 +54,9 @@ const ViewList = ({list}) => {
     return(
         <div>
             {isEdit ? <input type="text" value={editText} onChange={OnChange}/> : list.text}
-            <button onClick={Edit}>{isEdit ? "완료" : "수정"}</button>
-            {isEdit ? null : <button onClick={Delete}>취소</button>}
-            
+            <button onClick={Edit} id="edit">{isEdit ? "Commit" : "Edit"}</button>
+            {isEdit ? null : <button onClick={Delete} id="delete">Delete</button>}  
+            <hr />    
         </div>
     );
 }

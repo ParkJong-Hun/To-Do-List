@@ -1,0 +1,43 @@
+div {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+    background-color: #fdfdfd;
+}
+input {
+    margin: 5px;
+    width: 20%;
+    height: 30px;
+    border-radius: 0.7em;
+    border-color: #f9f9f9;
+}
+button {
+    width: 5%;
+    height: 30px;
+    border-radius: 0.6em;
+    background-color:#f5f5f5;
+    border-color: #f9f9f9;
+    font-size: 15px;
+}
+
+#edit {
+    margin-left: 20px;
+    width: 3%;
+    height: 20px;
+    border-radius: 0.5em;
+    color: #ff9933;
+    font-size: 12px;
+}
+
+#delete {
+    width: 4%;
+    height: 20px;
+    border-radius: 0.5em;
+    color: #dd0000;
+    font-size: 12px;
+}
+hr {
+    width: 15%;
+
+}
