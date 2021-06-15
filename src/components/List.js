@@ -37,8 +37,10 @@ const ViewList = ({list}) => {
     const Edit = () => {
         if(isEdit) {
             //첫 번째 방법 : 기존의 것을 삭제하고 새로 만들기
-            dbService.collection("list").doc("list_" + editText).set({text: editText});
-            dbService.collection("list").doc("list_" + list.text).delete();
+            if(list.text !== editText) {
+                dbService.collection("list").doc("list_" + editText).set({text: editText});
+                dbService.collection("list").doc("list_" + list.text).delete();
+            }
             
             //두 번째 방법 : 기존의 것의 document 이름과 필드 내용을 수정.
             //dbService.collection("list").doc("list_" + list.text).update({text: editText});
@@ -53,10 +55,12 @@ const ViewList = ({list}) => {
     //수정 버튼 클릭될 때와 클릭 안될 때 보이는 게 달라지게 함.
     return(
         <div>
-            {isEdit ? <input type="text" value={editText} onChange={OnChange}/> : list.text}
-            <button onClick={Edit} id="edit">{isEdit ? "Commit" : "Edit"}</button>
+            <hr/>
+            <div id="theList">
+                {isEdit ? <input type="text" value={editText} onChange={OnChange} id="editText"/> : list.text}
+            </div>
+            <button onClick={Edit} id="edit">{isEdit ? "Ok" : "Edit"}</button>
             {isEdit ? null : <button onClick={Delete} id="delete">Delete</button>}  
-            <hr />    
         </div>
     );
 }

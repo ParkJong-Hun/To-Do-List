@@ -1,13 +1,13 @@
-div {
+body {
     padding: 10px;
     vertical-align: middle;
     text-align: center;
     font-size: 14px;
-    background-color: #fdfdfd;
+    background-color: #efefef;
 }
 input {
     margin: 5px;
-    width: 20%;
+    width: 17%;
     height: 30px;
     border-radius: 0.7em;
     border-color: #f9f9f9;
@@ -30,6 +30,10 @@ button {
     font-size: 12px;
 }
 
+#editText {
+    width: 140px;
+}
+
 #delete {
     width: 4%;
     height: 20px;
@@ -38,6 +42,14 @@ button {
     font-size: 12px;
 }
 hr {
-    width: 15%;
+    width: 300px;
 
+}
+
+#theList {
+    width: 200px;
+    max-height: 50px;
+    display: inline-block;
+    background-color: #f3f3f3;
+    border-radius: 0.5em;
 }
