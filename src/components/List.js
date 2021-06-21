@@ -7,7 +7,7 @@ import {dbService} from '../fbase';
 const List = () => {
     const [lists, setLists] = useState([]);
     useEffect(() => {
-        dbService.collection("list").onSnapshot(snapshot => {
+        dbService.collection("list").orderBy("date").onSnapshot(snapshot => {
             const listArray = snapshot.docs.map(doc => ({text: doc.text, ...doc.data()}));
             setLists(listArray);
         })
@@ -56,7 +56,7 @@ const ViewList = ({list}) => {
         <div>
             <hr/>
             <div id="theList">
-                {isEdit ? <input type="text" value={list.text} onChange={OnChange} id="editText"/> : list.text}
+                {isEdit ? <input type="text" value={editText} onChange={OnChange} id="editText"/> : list.text}
             </div>
             <button onClick={Edit} id="edit">{isEdit ? "Ok" : "Edit"}</button>
             {isEdit ? null : <button onClick={Delete} id="delete">Delete</button>}  

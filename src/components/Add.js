@@ -8,7 +8,8 @@ const Add = () => {
         //list 컬렉션의 list_텍스트 문서의 text 필드에다가 입력한 값 저장
         if(text !== "") {
             dbService.collection("list").doc("list_" + text).set({
-                text: text
+                text: text,
+                date: new Date()
             })
         }
         addText("")
