@@ -34,16 +34,17 @@ const ViewList = ({list}) => {
         dbService.collection("list").doc("list_" + list.text).delete();
     }
     //수정 버튼 함수. list의 해당 리스트의 내용을 수정
-    const Edit = () => {
+    const Edit = async () => {
         if(isEdit) {
             //첫 번째 방법 : 기존의 것을 삭제하고 새로 만들기
             if(list.text !== editText) {
                 dbService.collection("list").doc("list_" + list.text).delete();
-                dbService.collection("list").doc("list_" + editText).set({text: editText, date: new Date()});
+                await dbService.collection("list").doc("list_" + editText).set({text: editText, date: new Date()});
             }
             //두 번째 방법 : 기존의 것의 document 이름과 필드 내용을 수정.
             //dbService.collection("list").doc("list_" + list.text).update({text: editText});
             //dbService.collection("list").doc("list_" + list.text).
+            window.location.reload();
         }
         EditSwitch(!isEdit);
     }
