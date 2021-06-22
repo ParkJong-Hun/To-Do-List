@@ -39,7 +39,7 @@ const ViewList = ({list}) => {
             //첫 번째 방법 : 기존의 것을 삭제하고 새로 만들기
             if(list.text !== editText) {
                 dbService.collection("list").doc("list_" + list.text).delete();
-                dbService.collection("list").doc("list_" + editText).set({text: editText});
+                dbService.collection("list").doc("list_" + editText).set({text: editText, date: new Date()});
             }
             //두 번째 방법 : 기존의 것의 document 이름과 필드 내용을 수정.
             //dbService.collection("list").doc("list_" + list.text).update({text: editText});
